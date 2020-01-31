@@ -14,6 +14,7 @@ public class Main extends Canvas implements Runnable{
     public Main(){
 
         game = new Game();
+        this.addMouseMotionListener(new MouseInput(game));
 
         new Window("Ray casting", WIDTH, HEIGHT, this);
     }
