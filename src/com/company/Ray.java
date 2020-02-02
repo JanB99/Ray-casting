@@ -22,6 +22,11 @@ public class Ray {
         this.dir.norm();
     }
 
+    public void setAngle(float angle){
+        dir.x = (float) Math.cos(angle);
+        dir.y = (float) Math.sin(angle);
+    }
+
     public void setLoc(float x, float y){
         loc.x = x;
         loc.y = y;

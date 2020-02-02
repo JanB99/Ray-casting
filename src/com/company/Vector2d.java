@@ -15,6 +15,12 @@ public class Vector2d {
         return this;
     }
 
+    public Vector2d add(float x, float y){
+        this.x += x;
+        this.y += y;
+        return this;
+    }
+
     public Vector2d div(float x, float y){
         this.x /= x;
         this.y /= y;

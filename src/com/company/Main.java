@@ -5,16 +5,22 @@ import java.awt.image.BufferStrategy;
 
 public class Main extends Canvas implements Runnable{
 
-    public static final int WIDTH = 600, HEIGHT = 600;
+    public static final int WIDTH = 1000, HEIGHT = 400;
 
     private Thread thread;
     public boolean running;
     private Game game;
+    private KeyInput keyInput;
 
     public Main(){
 
         game = new Game();
-        this.addMouseMotionListener(new MouseInput(game));
+        keyInput = new KeyInput(game);
+        this.addMouseMotionListener(new MouseMotionInput(game));
+        this.addMouseListener(new MouseInput(game));
+        this.addKeyListener(keyInput);
+
+        game.player = new Particle(360, Main.WIDTH/4, Main.HEIGHT/2, keyInput);
 
         new Window("Ray casting", WIDTH, HEIGHT, this);
     }
